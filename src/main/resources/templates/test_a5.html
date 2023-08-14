@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/test_a.css">
+    <title>Document</title>
+</head>
+<!-- 미술 교육 멘토링 -->
+<body>
+    <div class="a">
+        <div class="logo">Mench</div>
+        <h2>검사 결과</h2>
+        <div>추천하는 멘토링 프로그램은...</div>
+        <h1>"미술 교육 멘토링"</h1>
+        <div class="img_q"><img src="../images/ex1.jpg" alt="My Image"></div>
+        <div>웹툰? 일러스트? 이모티콘? 이제 직접 그려봐!<br>
+            "미술 교육 멘토링"을 추천해!<br>
+        </div>
+        <div class="p_list">
+            <p>프로그램 추천리스트</p>
+            <!-- a 태그 주소 추후 변경 -->
+            <a href="test_main.html"><img src="../images/ex1.jpg" alt="My Image">프로그램명 프로그램 내용~~ </a>
+            <!-- a 태그 주소 추후 변경 -->
+            <a href="test_main.html"><img src="../images/ex1.jpg" alt="My Image">프로그램명 프로그램 내용~~ </a>
+            <!-- a 태그 주소 추후 변경 -->
+            <a href="test_main.html"><img src="../images/ex1.jpg" alt="My Image">프로그램명 프로그램 내용~~ </a>
+        </div>
+        <div class="a_a">
+            <a th:href="@{/test/main}">검사 다시하기↻</a><br>
+            <a th:href="@{/test/a_list}">전체 유형 보러가기➔</a>
+        </div>
+    </div>
+</body>
+</html>
