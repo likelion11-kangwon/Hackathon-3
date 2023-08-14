@@ -1,0 +1,46 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+#main_all {
+    border: 1mm solid #72edba;
+    margin-top: 120px;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    width: 60vw;
+    height: 80%;
+}
+
+.logo {
+    background-color: #fff;
+    margin: 20px;
+    font-size: 20px;
+}
+
+#main_all h1 {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 80px;
+    padding: 20px;
+    font-size: 50px;
+    line-height: 150%;
+}
+
+#main_a {
+    padding: 30px;
+}
+
+#main_a a {
+    background-color: #72edba;
+    margin: 10px;
+    padding: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 40px;
+    color:#000;
+    text-decoration: none;
+    border: 1mm solid #72edba;
+    border-radius: 50px;
+}

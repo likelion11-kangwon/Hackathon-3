@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/sign_up_in.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#" accept-charset="UTF-8" id="signup_form" name="signup" method="post" onsubmit="return check()">
+                <h1>회원가입</h1>
+                
+                <span>간편 회원가입 혹은 이메일을 사용하세요</span>
+                <input type="text" placeholder="이름" required />
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="비밀번호" required />
+                <div id="area_select">
+                    <div style="float: left;">
+                        지역설정 
+                        <select id="area" name="area">
+                            <option>지역을 선택하시오</option>
+                            <option>서울특별시</option>
+                            <option>부산광역시</option>
+                            <option>대구광역시</option>
+                            <option>인천광역시</option>
+                            <option>광주광역시</option>
+                            <option>대전광역시</option>
+                            <option>울산광역시</option>
+                            <option>세종특별자치시</option>
+                            <option>경기도</option>
+                            <option>강원특별자치도</option>
+                            <option>충청북도</option>
+                            <option>충청남도</option>
+                            <option>전라북도</option>
+                            <option>전라남도</option>
+                            <option>경상북도</option>
+                            <option>경상남도</option>
+                            <option>제주특별자치도</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="submit" type="submit">가입하기</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#" accept-charset="UTF-8" id="signin_form" name="signin" method="post">
+                <h1>로그인</h1>
+                
+                <span>간편 로그인하기</span>
+                <input type="email" placeholder="Email" required/>
+                <input type="password" placeholder="비밀번호" required/>
+                <a href="#">비밀번호를 잊으셨나요?</a>
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>로그인 하러가기</h1>
+                    <p>계정을 생성하셨나요? 회원가입을 마치셨다면,<br>로그인 후 저희 서비스를 이용해주세요</p>
+                    <button class="ghost" id="signIn">로그인</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>환영합니다</h1>
+                    <p>간편하게 회원가입 하시고<br>다양한 서비스를 이용해보세요!</p>
+                    <button class="ghost" id="signUp">회원가입</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+        function check(){
+            if($("#area option:selected").val()=="지역을 선택하시오"){
+                alert("지역을 선택하시오");
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
