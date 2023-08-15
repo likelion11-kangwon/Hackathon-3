@@ -3,6 +3,7 @@ package com.teamProject.mentoring.controller;
 
 import com.teamProject.mentoring.dto.UserDto;
 import com.teamProject.mentoring.entity.Message;
+import com.teamProject.mentoring.entity.UserEntity;
 import com.teamProject.mentoring.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -79,15 +80,15 @@ public class UserController {
         System.out.println(httpSession.getAttribute("userEmail"));
         return "buttonTest";
     }
-    @PostMapping("buttonTest")
-    public String save_branch(HttpSession httpSession){
-        if(userService.updateUserProfile((String) httpSession.getAttribute("userEmail"))){
-            System.out.println("업데이트 완료");
-        }
-        else System.out.println("업데이트 실패");
-
-        return "mainPage";
-    }
+//    @PostMapping("buttonTest")
+//    public String save_branch(HttpSession httpSession){
+//        if(userService.updateUserProfile((String) httpSession.getAttribute("userEmail"))){
+//            System.out.println("업데이트 완료");
+//        }
+//        else System.out.println("업데이트 실패");
+//
+//        return "mainPage";
+//    }
 
     @GetMapping("fstPage")
     public String fstPage(){
@@ -130,6 +131,57 @@ public class UserController {
     public String test_a8(){
         return "test_a8";
     }
+
+    @PostMapping("/test/a1")
+    @ResponseBody
+    public String handleA1Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "과학");
+        return "test/a1";
+    }
+    @PostMapping("/test/a2")
+    @ResponseBody
+    public String handleA2Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "코딩");
+        return "test/a2";
+    }
+    @PostMapping("/test/a3")
+    @ResponseBody
+    public String handleA3Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "생활");
+        return "test/a3";
+    }
+    @PostMapping("/test/a4")
+    @ResponseBody
+    public String handleA4Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "독서");
+        return "test/a4";
+    }
+    @PostMapping("/test/a5")
+    @ResponseBody
+    public String handleA5Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "미술");
+        return "test/a5";
+    }
+    @PostMapping("/test/a6")
+    @ResponseBody
+    public String handleA6Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "수학");
+        return "test/a6";
+    }
+    @PostMapping("/test/a7")
+    @ResponseBody
+    public String handleA7Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "체육");
+        return "test/a7";
+    }
+    @PostMapping("/test/a8")
+    @ResponseBody
+    public String handleA8Request(HttpSession httpSession){
+        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "영어");
+        return "test/a8";
+    }
+
+
 
     @GetMapping("test/q1")
     public String test_q1(){

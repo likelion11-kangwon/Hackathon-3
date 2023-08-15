@@ -17,18 +17,43 @@
             🍎🍎🍎</h1>
         <div class="a_q">
             <a id="a6" th:href="@{/test/a6}">한 사람당 1과 1/2개씩 가져가면 되겠다!</a>
+<!--            <button>한 사람당 1과 1/2개씩 가져가면 되겠다!</button>-->
+<!--            <a th:href="@{/test/a6}">한 사람당 1과 1/2개씩 가져가면 되겠다!</a>-->
             <a id="a8" th:href="@{/test/a8}">Hey! James! 저 apples 정말 맛있어 보인다!</a>
         </div>
     </div>
     <script>
-        // 결과 저장이벤트 발생
-        $("#a6").click(function(){
+    $(document).ready(function() {
+        $("#a6").click(function(e) {
             alert("a6");
+
+            // 서버로 요청 보내기
+            $.ajax({
+                type: "POST",
+                url: "/test/a6"
+            });
         });
-        $("#a8").click(function(){
+
+        $("#a8").click(function(e) {
             alert("a8");
+
+            // 서버로 요청 보내기
+            $.ajax({
+                type: "POST",
+                url: "/test/a8"
+            });
         });
-    </script>
+    });
+</script>
+<!--    <script>-->
+<!--        // 결과 저장이벤트 발생-->
+<!--        $("#a6").click(function(){-->
+<!--            alert("a6");-->
+<!--        });-->
+<!--        $("#a8").click(function(){-->
+<!--            alert("a8");-->
+<!--        });-->
+<!--    </script>-->
 </body>
 
 </html>

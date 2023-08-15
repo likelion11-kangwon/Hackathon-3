@@ -48,12 +48,12 @@ public class UserService {
         }
     }
 
-    public boolean updateUserProfile(String userEmail) {
+    public boolean updateUserProfile(String userEmail, String branch) {
         Optional<UserEntity> existingUser = userRepository.findByEmail(userEmail);
 
         if (existingUser != null ) {
             UserEntity userEntity = existingUser.get();
-            userEntity.setBranch("코딩");
+            userEntity.setBranch(branch);
 
 
             userRepository.save(userEntity);

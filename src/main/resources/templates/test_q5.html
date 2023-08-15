@@ -20,13 +20,35 @@
         </div>
     </div>
     <script>
-        // 결과 저장이벤트 발생
-        $("#a7").click(function () {
+        $(document).ready(function() {
+        $("#a7").click(function(e) {
             alert("a7");
+
+            // 서버로 요청 보내기
+            $.ajax({
+                type: "POST",
+                url: "/test/a7"
+            });
         });
-        $("#a5").click(function () {
+
+        $("#a5").click(function(e) {
             alert("a5");
+
+            // 서버로 요청 보내기
+            $.ajax({
+                type: "POST",
+                url: "/test/a5"
+            });
         });
+    });
+
+<!--        // 결과 저장이벤트 발생-->
+<!--        $("#a7").click(function () {-->
+<!--            alert("a7");-->
+<!--        });-->
+<!--        $("#a5").click(function () {-->
+<!--            alert("a5");-->
+<!--        });-->
     </script>
 </body>
 
