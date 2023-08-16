@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/test_q.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="q">
+        <div class="logo">Mench</div>
+        <div class="img_q"><img src="../images/ex1.jpg" alt="My Image"></div>
+        <h1>내가 회사 CEO가 된다면?</h1>
+        <div class="a_q">
+            <a id="a1" th:href="@{/test/a1}">아이폰, 무인 자동차처럼 새로운 기술을 만들거야!🚀</a>
+            <a id="a2" th:href="@{/test/a2}">카카오톡, 페이스북처럼 인터넷 서비스를 만들거야!👩‍💻</a>
+        </div>
+    </div>
+    <script>
+        // 결과 저장이벤트 발생
+        $("#a1").click(function(){
+            alert("a1");
+        });
+        $("#a2").click(function(){
+            alert("a2");
+        });
+    </script>
+</body>
+</html>

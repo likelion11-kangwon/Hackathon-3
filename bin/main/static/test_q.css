@@ -56,9 +56,3 @@ body {
     border: 1mm solid #72edba;
     border-radius: 50px;
 }
-.a_q a:hover{
-    background-color:#89d8d3;
-    background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
-    border: 1mm solid transparent;
-    color: #ffffff;
-}

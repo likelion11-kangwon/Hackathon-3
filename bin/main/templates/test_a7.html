@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/test_a.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <link rel="stylesheet" href="/test_a.css">
     <title>Document</title>
 </head>
-<!-- 과학 키트 활동 멘토링 -->
-
+<!-- 체육 교육 멘토링 -->
 <body>
     <div class="a">
         <div class="logo">Mench</div>
         <h2>검사 결과</h2>
-        <div style="font-size: 20px;">추천하는 멘토링 프로그램은...</div>
-        <h1>"과학 키트 멘토링"</h1>
+        <div>추천하는 멘토링 프로그램은...</div>
+        <h1>"체육 교육 멘토링"</h1>
         <div class="img_q"><img src="../images/ex1.jpg" alt="My Image"></div>
-        <div style="font-size: 20px;">호기심이 많고, 이색적인 활동을 좋아하는 너에게<br>
-            "과학 키트 멘토링"을 추천해!<br>
+        <div>언제 어디서나 에너자이너를 담당하는 너에게<br>
+            "체육 교육 멘토링"을 추천해!<br>
         </div>
         <div class="p_list">
             <p>프로그램 추천리스트</p>
@@ -30,10 +27,9 @@
             <a href="test_main.html"><img src="../images/ex1.jpg" alt="My Image">프로그램명 프로그램 내용~~ </a>
         </div>
         <div class="a_a">
-            <a href="test_main.html">검사 다시하기↻</a><br>
-            <a href="test_a_list.html">전체 유형 보러가기➔</a>
+            <a th:href="@{/test/main}">검사 다시하기↻</a><br>
+            <a th:href="@{/test/a_list}">전체 유형 보러가기➔</a>
         </div>
     </div>
 </body>
-
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/test_q.css">
+    <link rel="stylesheet" href="/test_q.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <title>Document</title>
 </head>
@@ -15,15 +15,14 @@
         <div class="img_q"><img src="../images/ex1.jpg" alt="My Image"></div>
         <h1>나는 학교</h1>
         <div class="a_q">
-            <a href="test_q3.html">
+            <a th:href="@{/test/q3}">
                 에서 못해본 색다른 활동을 하고 싶어!
             </a><br>
-            <a href="test_q2.html">
+            <a th:href="@{/test/q2}">
                 공부에 도움이 되는 걸 배우고 싶어!
             </a>
         </div>
     </div>
-
 </body>
 
 </html>
