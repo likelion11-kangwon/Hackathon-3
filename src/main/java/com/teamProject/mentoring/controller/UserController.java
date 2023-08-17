@@ -2,15 +2,21 @@ package com.teamProject.mentoring.controller;
 
 
 import com.teamProject.mentoring.dto.UserDto;
+import com.teamProject.mentoring.entity.Center;
 import com.teamProject.mentoring.entity.Message;
 import com.teamProject.mentoring.entity.UserEntity;
 import com.teamProject.mentoring.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 import java.util.Optional;
 
 
@@ -80,15 +86,36 @@ public class UserController {
         System.out.println(httpSession.getAttribute("userEmail"));
         return "buttonTest";
     }
+
+    @GetMapping("buttonTest2")
+    public String buttonTest2(Model model){
+        List<Center> centerList = userService.buttonTest();
+        model.addAttribute("centerList", centerList);
+
+        return "buttonTest2";
+    }
 //    @PostMapping("buttonTest")
 //    public String save_branch(HttpSession httpSession){
-//        if(userService.updateUserProfile((String) httpSession.getAttribute("userEmail"))){
-//            System.out.println("업데이트 완료");
+//        List<Center> centerList = userService.buttonTest("힘찬지역아동센터");
+//        for(Center c : centerList){
+//            System.out.println(c.getInfo());
+//            System.out.println(c.getIntro());
+//            System.out.println(c.getProgram());
+//            System.out.println(c.getName());
 //        }
-//        else System.out.println("업데이트 실패");
 //
-//        return "mainPage";
+//
+//        return "buttonTest";
 //    }
+
+    @Configuration
+    public class MvcConfig implements WebMvcConfigurer {
+        @Override
+        public void addViewControllers(ViewControllerRegistry registry) {
+            registry.addViewController("buttonTest2").setViewName("buttonTest2");
+        }
+    }
+
 
     @GetMapping("fstPage")
     public String fstPage(){

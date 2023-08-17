@@ -1,5 +1,6 @@
 package com.teamProject.mentoring.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -10,18 +11,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "programs")
-public class ProgramEntity {
-
+@Table(name = "center")
+public class Center {
     @Id
-    private Long id;
-
+    private Long ID;
     private String name;
-
-    private String branch;
-
-    private String area;
-
-    private String category;
+    private String info;
+    private String intro;
+    private String program;
 
 }

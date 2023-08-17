@@ -1,10 +1,15 @@
 package com.teamProject.mentoring.service;
 
 import com.teamProject.mentoring.dto.UserDto;
+import com.teamProject.mentoring.entity.Center;
 import com.teamProject.mentoring.entity.UserEntity;
+import com.teamProject.mentoring.repository.CenterRepository;
+import com.teamProject.mentoring.repository.CompanyRepository;
 import com.teamProject.mentoring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -12,6 +17,8 @@ import java.util.Optional;
 // RequiredArgsConstructor : 생성자 주입.
 public class UserService {
     private final UserRepository userRepository;
+    private final CompanyRepository companyRepository;
+    private final CenterRepository centerRepository;
     public boolean save(UserDto userDto) {
         UserEntity userEntity = UserEntity.toUserEntity(userDto);
         Optional<UserEntity> byUserEmail = userRepository.findByEmail(userDto.getEmail());
@@ -61,5 +68,9 @@ public class UserService {
         }
 
         return false; // 업데이트 실패 (사용자 정보가 잘못되었거나 존재하지 않는 경우)
+    }
+    public List<Center> buttonTest(){
+        return centerRepository.findAll();
+//        return centerRepository.findByName(centerName);
     }
 }
