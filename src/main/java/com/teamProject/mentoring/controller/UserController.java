@@ -3,6 +3,7 @@ package com.teamProject.mentoring.controller;
 
 import com.teamProject.mentoring.dto.UserDto;
 import com.teamProject.mentoring.entity.Center;
+import com.teamProject.mentoring.entity.Company;
 import com.teamProject.mentoring.entity.Message;
 import com.teamProject.mentoring.entity.UserEntity;
 import com.teamProject.mentoring.service.UserService;
@@ -87,13 +88,14 @@ public class UserController {
         return "buttonTest";
     }
 
-    @GetMapping("buttonTest2")
-    public String buttonTest2(Model model){
-        List<Center> centerList = userService.buttonTest();
-        model.addAttribute("centerList", centerList);
+//    @GetMapping("buttonTest2")
+//    public String buttonTest2(Model model){
+//        List<Center> centerList = userService.buttonTest();
+//        model.addAttribute("centerList", centerList);
+//
+//        return "buttonTest2";
+//    }
 
-        return "buttonTest2";
-    }
 //    @PostMapping("buttonTest")
 //    public String save_branch(HttpSession httpSession){
 //        List<Center> centerList = userService.buttonTest("힘찬지역아동센터");
@@ -108,13 +110,13 @@ public class UserController {
 //        return "buttonTest";
 //    }
 
-    @Configuration
-    public class MvcConfig implements WebMvcConfigurer {
-        @Override
-        public void addViewControllers(ViewControllerRegistry registry) {
-            registry.addViewController("buttonTest2").setViewName("buttonTest2");
-        }
-    }
+//    @Configuration
+//    public class MvcConfig implements WebMvcConfigurer {
+//        @Override
+//        public void addViewControllers(ViewControllerRegistry registry) {
+//            registry.addViewController("buttonTest2").setViewName("buttonTest2");
+//        }
+//    }
 
 
     @GetMapping("fstPage")
@@ -122,9 +124,25 @@ public class UserController {
         return "fstPage";
     }
     @GetMapping("mainPage")
-    public String mainPage(){
-        return "mainPage";
+    public String mainPage(Model model, HttpSession httpSession){
+        System.out.println("userEmail = "+httpSession.getAttribute("userEmail"));
+        List<Center> centerList = userService.getCenterListByArea((String) httpSession.getAttribute("userEmail"));
+        List<Company> companyList = userService.getCompanyList();
+
+        model.addAttribute("centerList", centerList);
+        model.addAttribute("companyList", companyList);
+
+        return "/mainPage";
     }
+
+
+//    @Configuration
+//    public class MvcConfig implements WebMvcConfigurer {
+//        @Override
+//        public void addViewControllers(ViewControllerRegistry registry) {
+//            registry.addViewController("buttonTest2").setViewName("buttonTest2");
+//        }
+//    }
 
     @GetMapping("test/a1")
     public String test_a1(){

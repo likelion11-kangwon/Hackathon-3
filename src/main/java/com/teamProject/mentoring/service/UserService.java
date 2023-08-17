@@ -2,6 +2,7 @@ package com.teamProject.mentoring.service;
 
 import com.teamProject.mentoring.dto.UserDto;
 import com.teamProject.mentoring.entity.Center;
+import com.teamProject.mentoring.entity.Company;
 import com.teamProject.mentoring.entity.UserEntity;
 import com.teamProject.mentoring.repository.CenterRepository;
 import com.teamProject.mentoring.repository.CompanyRepository;
@@ -58,7 +59,7 @@ public class UserService {
     public boolean updateUserProfile(String userEmail, String branch) {
         Optional<UserEntity> existingUser = userRepository.findByEmail(userEmail);
 
-        if (existingUser != null ) {
+        if (existingUser.isPresent()) {
             UserEntity userEntity = existingUser.get();
             userEntity.setBranch(branch);
 
@@ -69,8 +70,22 @@ public class UserService {
 
         return false; // 업데이트 실패 (사용자 정보가 잘못되었거나 존재하지 않는 경우)
     }
-    public List<Center> buttonTest(){
-        return centerRepository.findAll();
-//        return centerRepository.findByName(centerName);
+    public List<Center> getCenterListByArea(String userEmail){
+        Optional<UserEntity> existingUser = userRepository.findByEmail(userEmail);
+        if(existingUser.isPresent()){
+            System.out.println("EXIST");
+            UserEntity userEntity = existingUser.get();
+            return centerRepository.findByInfoContaining(userEntity.getArea());
+        }
+        return null;
+    }
+    public boolean isExistUser(String userEmail){
+        Optional<UserEntity> existingUser = userRepository.findByEmail(userEmail);
+        if(existingUser.isPresent()) return true;
+        return false;
+    }
+
+    public List<Company> getCompanyList() {
+        return companyRepository.findAll();
     }
 }

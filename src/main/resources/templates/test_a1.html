@@ -1,36 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/test_a.css">
-    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <title>Mench</title>
+    <link rel="stylesheet" href="/main.css">
+    <script defer src="/main.js"></script>
 </head>
 <!-- 과학 키트 활동 멘토링 -->
 
 <body>
+    <header>
+        <div class="inner">
+    
+          <a th:href="@{/mainPage}" class="logo">
+            <img src="../images/logo.png" alt="Mench">
+          </a>
+    
+          <div class="sub-menu">
+            <ul class="menu">
+              <li class="introduce">
+                소개
+              </li>
+              <li class="mentoring">
+                멘토링
+              </li>
+              <li class="test">
+                <a class="move" th:href="@{/test/main}">검사하기</a>
+              </li>
+            </ul>
+            <a th:href="@{/fstPage}" class="log-out">
+              <div class="material-symbols-outlined">
+                logout
+              </div>
+            </a>
+          </div>
+    
+        </div>
+      </header>
     <div class="a">
         <div class="logo">Mench</div>
         <h2>검사 결과</h2>
         <div style="font-size: 20px;">추천하는 멘토링 프로그램은...</div>
         <h1>"과학 키트 멘토링"</h1>
-        <div class="img_q"><img src="/images/ex1.jpg" alt="My Image"></div>
+        <div class="img_q"><img src="../images/undraw_Science_re_mnnr.png" alt="My Image"></div>
         <div style="font-size: 20px;">호기심이 많고, 이색적인 활동을 좋아하는 너에게<br>
             "과학 키트 멘토링"을 추천해!<br>
         </div>
         <div class="p_list">
             <p>프로그램 추천리스트</p>
-            <!-- a 태그 주소 추후 변경 -->
-            <a href="test_main.html"><img src="/images/ex1.jpg" alt="My Image">프로그램명 프로그램 내용~~ </a>
-            <!-- a 태그 주소 추후 변경 -->
-            <a href="test_main.html"><img src="/images/ex1.jpg" alt="My Image">프로그램명 프로그램 내용~~ </a>
-            <!-- a 태그 주소 추후 변경 -->
-            <a href="test_main.html"><img src="/images/ex1.jpg" alt="My Image">프로그램명 프로그램 내용~~ </a>
+            <a href="https://www.ktds.com/company/social_01.jsp"><img src="../images/undraw_Science_re_mnnr.png" alt="My Image">
+                KT<br><br>
+                사회공헌 활동에 연계한 Smart App 개발 및 지원과
+                이를 활용한 아나바다 활동을 통해서 사회적인
+                공유가치 창출에 이바지 하고 있습니다.</a>
+            <a href="https://www.ktds.com/company/social_01.jsp"><img src="../images/undraw_Science_re_mnnr.png" alt="My Image">
+                KT<br><br>
+                인터넷 중독, 게임 중독의 폐해를 알려주고, 조기 예방활동을 통해서 건전한 심성을 키워나가도록
+                지원하고 있습니다. </a>
+            <a href="https://www.science.go.kr/board?menuId=MENU00412&siteId="><img src="../images/undraw_Science_re_mnnr.png" alt="My Image">
+                국립중앙과학관<br><br>
+                급속충전식 전동비행기, 급속충전식날개치기 전동비행체, 멀티콥터작동원리 이해 및 제작실습
+            </a>
         </div>
         <div class="a_a">
-<!--            <a href="test_main.html">검사 다시하기↻</a><br>-->
-<!--            <a href="test_a_list.html">전체 유형 보러가기➔</a>-->
             <a th:href="@{/test/main}">검사 다시하기↻</a><br>
             <a th:href="@{/test/a_list}">전체 유형 보러가기➔</a>
         </div>

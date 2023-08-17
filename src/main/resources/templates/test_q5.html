@@ -1,30 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/test_q.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-    <title>Document</title>
+    <title>Mench</title>
+    <link rel="stylesheet" href="/main.css">
+    <script defer src="/main.js"></script>
 </head>
 
 <body>
+<header>
+    <div class="inner">
+
+        <a th:href="@{/mainPage}" class="logo">
+            <img src="../images/logo.png" alt="Mench">
+        </a>
+
+        <div class="sub-menu">
+            <ul class="menu">
+                <li class="introduce">
+                    소개
+                </li>
+                <li class="mentoring">
+                    멘토링
+                </li>
+                <li class="test">
+                    <a class="move" th:href="@{/test/main}">검사하기</a>
+                </li>
+            </ul>
+            <a th:href="@{/fstPage}" class="log-out">
+                <div class="material-symbols-outlined">
+                    logout
+                </div>
+            </a>
+        </div>
+
+    </div>
+</header>
     <div class="q">
         <div class="logo">Mench</div>
-        <div class="img_q"><img src="../images/ex1.jpg" alt="My Image"></div>
+        <div class="img_q"><img src="../images/undraw_Dreamer_re_9tua.png" alt="My Image"></div>
         <h1>내 꿈은</h1>
         <div class="a_q">
             <a id="a7" th:href="@{/test/a7}">메시!⚽</a>
             <a id="a5" th:href="@{/test/a5}">피카소!🎨</a>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
+<script>
+            $(document).ready(function() {
         $("#a7").click(function(e) {
-            alert("a7");
-
-            // 서버로 요청 보내기
             $.ajax({
                 type: "POST",
                 url: "/test/a7"
@@ -32,23 +59,12 @@
         });
 
         $("#a5").click(function(e) {
-            alert("a5");
-
-            // 서버로 요청 보내기
             $.ajax({
                 type: "POST",
                 url: "/test/a5"
             });
         });
     });
-
-<!--        // 결과 저장이벤트 발생-->
-<!--        $("#a7").click(function () {-->
-<!--            alert("a7");-->
-<!--        });-->
-<!--        $("#a5").click(function () {-->
-<!--            alert("a5");-->
-<!--        });-->
     </script>
 </body>
 
