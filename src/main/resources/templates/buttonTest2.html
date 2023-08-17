@@ -8,7 +8,12 @@
   <h1>Center List</h1>
   <ul>
     <li th:each="center : ${centerList}">
-      <span th:text="${center.info}"></span>
+        <p>
+            <span th:text="${center.ID}"></span>. 센터명 : <span th:text="${center.name}"></span> <br>
+            센터 위치, 시간 : <span th:text="${center.info}"></span> <br>
+            프로그램 : <span th:text="${center.program}"></span> <br>
+        </p>
+
     </li>
   </ul>
 
