@@ -89,6 +89,12 @@ header .sub-menu .log-out {
 header .sub-menu .log-out:hover {
   color: black;
 }
+.move {
+  color: #656565;
+}
+.move:hover {
+  color: #000;
+}
 
 
 
