@@ -5,27 +5,20 @@ import com.teamProject.mentoring.dto.UserDto;
 import com.teamProject.mentoring.entity.Center;
 import com.teamProject.mentoring.entity.Company;
 import com.teamProject.mentoring.entity.Message;
-import com.teamProject.mentoring.entity.UserEntity;
-import com.teamProject.mentoring.service.UserService;
+import com.teamProject.mentoring.service.Service;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
-import java.util.Optional;
 
 
-
-@Controller
+@org.springframework.stereotype.Controller
 @RequiredArgsConstructor
-public class UserController {
-    private final UserService userService;
+public class Controller {
+    private final Service userService;
 
     @GetMapping("user/sign_up_in")
     public String registerHome(){

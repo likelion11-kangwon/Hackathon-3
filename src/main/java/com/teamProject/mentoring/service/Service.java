@@ -8,15 +8,14 @@ import com.teamProject.mentoring.repository.CenterRepository;
 import com.teamProject.mentoring.repository.CompanyRepository;
 import com.teamProject.mentoring.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@org.springframework.stereotype.Service
 @RequiredArgsConstructor
 // RequiredArgsConstructor : 생성자 주입.
-public class UserService {
+public class Service {
     private final UserRepository userRepository;
     private final CompanyRepository companyRepository;
     private final CenterRepository centerRepository;
