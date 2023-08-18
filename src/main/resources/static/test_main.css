@@ -1,6 +1,6 @@
 body {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     text-align: center;
 }
 
@@ -9,6 +9,7 @@ body {
     margin-top: 120px;
     margin-left: 20vw;
     margin-right: 20vw;
+    margin-bottom: 100px;
     width: 60vw;
     height: 80%;
 }
