@@ -15,7 +15,7 @@
 <header>
     <div class="inner">
 
-        <a th:href="" class="logo">
+        <a href="" class="logo">
             <img src="../images/logo.png" alt="Mench">
         </a>
 
@@ -59,7 +59,7 @@
 
       $(".logo").click(function(){
         if(confirm("지금까지의 검사 기록이 저장되지 않습니다. 홈으로 돌아가시겠습니까?")){
-        $(this).attr("href", "@{/mainPage}");
+        $(this).attr("href", "/mainPage");
     }
   });
 
