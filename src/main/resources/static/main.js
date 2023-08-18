@@ -65,3 +65,21 @@ corporationName.addEventListener('click',function(){
   stateContent.classList.remove('mentoring-state-content');
   corporationContent.classList.add('mentoring-corporation-content-block');
 })
+
+
+
+// 추가
+const state = document.querySelector('.mentoring-state-name');
+
+state.addEventListener('click',function(){
+  state.setAttribute('transfrom','scale(1.3)');
+  state.setAttribute('background-color','#6ff4bd')
+})
+
+
+const corporation = document.querySelector('.mentoring-corporation-name');
+
+corporation.addEventListener('click',function(){
+  corporation.setAttribute('transfrom','scale(1.3)');
+  corporation.setAttribute('background-color','#f9c786')
+})
