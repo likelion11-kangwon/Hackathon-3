@@ -83,3 +83,5 @@ corporation.addEventListener('click',function(){
   corporation.setAttribute('transfrom','scale(1.3)');
   corporation.setAttribute('background-color','#f9c786')
 })
+
+
