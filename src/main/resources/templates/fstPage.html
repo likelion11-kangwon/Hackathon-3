@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mentoring</title>
-  <link rel="stylesheet" href="/fstPage.css">
+  <title>Mench</title>
+  <link rel="stylesheet" href="/page3.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
   <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
   <script src="../static/main.js"></script>
@@ -21,7 +21,6 @@
 <script>
   $(".move-go").click(function(){
     if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")){
-<!--      $(this).attr("href", "../templates/sign_up_in.html");-->
       $(this).attr("href", "user/sign_up_in");
     }
   });

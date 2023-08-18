@@ -1,33 +1,58 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/test_q.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-    <title>Document</title>
+    <title>Mench</title>
+    <link rel="stylesheet" href="/main.css">
+    <script defer src="/main.js"></script>
 </head>
 
 <body>
+<header>
+    <div class="inner">
+
+        <a th:href="@{/mainPage}" class="logo">
+            <img src="../images/logo.png" alt="Mench">
+        </a>
+
+        <div class="sub-menu">
+            <ul class="menu">
+                <li class="introduce">
+                    소개
+                </li>
+                <li class="mentoring">
+                    멘토링
+                </li>
+                <li class="test">
+                    <a class="move" th:href="@{/test/main}">검사하기</a>
+                </li>
+            </ul>
+            <a th:href="@{/fstPage}" class="log-out">
+                <div class="material-symbols-outlined">
+                    logout
+                </div>
+            </a>
+        </div>
+
+    </div>
+</header>
     <div class="q">
         <div class="logo">Mench</div>
-        <div class="img_q"><img src="../images/ex1.jpg" alt="My Image"></div>
-        <h1>👩👨<br>
+        <div class="img_q"><img src="../images/undraw_Positive_attitude_re_wu7d.png" alt="My Image"></div>
+        <h1 style="font-size: 28px;">👩👨<br>
             🍎🍎🍎</h1>
         <div class="a_q">
             <a id="a6" th:href="@{/test/a6}">한 사람당 1과 1/2개씩 가져가면 되겠다!</a>
-<!--            <button>한 사람당 1과 1/2개씩 가져가면 되겠다!</button>-->
-<!--            <a th:href="@{/test/a6}">한 사람당 1과 1/2개씩 가져가면 되겠다!</a>-->
             <a id="a8" th:href="@{/test/a8}">Hey! James! 저 apples 정말 맛있어 보인다!</a>
         </div>
     </div>
     <script>
-    $(document).ready(function() {
+            $(document).ready(function() {
         $("#a6").click(function(e) {
-            alert("a6");
-
-            // 서버로 요청 보내기
             $.ajax({
                 type: "POST",
                 url: "/test/a6"
@@ -35,25 +60,13 @@
         });
 
         $("#a8").click(function(e) {
-            alert("a8");
-
-            // 서버로 요청 보내기
             $.ajax({
                 type: "POST",
                 url: "/test/a8"
             });
         });
     });
-</script>
-<!--    <script>-->
-<!--        // 결과 저장이벤트 발생-->
-<!--        $("#a6").click(function(){-->
-<!--            alert("a6");-->
-<!--        });-->
-<!--        $("#a8").click(function(){-->
-<!--            alert("a8");-->
-<!--        });-->
-<!--    </script>-->
+    </script>
 </body>
 
 </html>

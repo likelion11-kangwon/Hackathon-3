@@ -1,26 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/test_a_list.css">
-    <title>Document</title>
+    <title>Mench</title>
+    <link rel="stylesheet" href="/main.css">
+    <script defer src="/main.js"></script>
 </head>
 
 <body>
+<header>
+    <div class="inner">
+
+        <a th:href="@{/mainPage}" class="logo">
+            <img src="../images/logo.png" alt="Mench">
+        </a>
+
+        <div class="sub-menu">
+            <ul class="menu">
+                <li class="introduce">
+                    소개
+                </li>
+                <li class="mentoring">
+                    멘토링
+                </li>
+                <li class="test">
+                    <a class="move" th:href="@{/test/main}">검사하기</a>
+                </li>
+            </ul>
+            <a th:href="@{/fstPage}" class="log-out">
+                <div class="material-symbols-outlined">
+                    logout
+                </div>
+            </a>
+        </div>
+
+    </div>
+</header>
     <div class="al">
         <div class="logo">Mench</div>
         <div class="p_list">
             <p>프로그램 추천리스트</p>
-            <a th:href="@{/test/a1}"><img src="../images/ex1.jpg" alt="My Image">"과학 키트 멘토링" 결과 보러가기</a>
-            <a th:href="@{/test/a2}"><img src="../images/ex1.jpg" alt="My Image">"코딩교육 멘토링" 결과 보러가기</a>
-            <a th:href="@{/test/a3}"><img src="../images/ex1.jpg" alt="My Image">"생활교육 멘토링" 결과 보러가기</a>
-            <a th:href="@{/test/a4}"><img src="../images/ex1.jpg" alt="My Image">"독서활동 멘토링" 결과 보러가기</a>
-            <a th:href="@{/test/a5}"><img src="../images/ex1.jpg" alt="My Image">"미술교육 멘토링" 결과 보러가기</a>
-            <a th:href="@{/test/a2}"><img src="../images/ex1.jpg" alt="My Image">"수학교육 멘토링" 결과 보러가기</a>
-            <a th:href="@{/test/a2}"><img src="../images/ex1.jpg" alt="My Image">"체육교육 멘토링" 결과 보러가기</a>
-            <a th:href="@{/test/a2}"><img src="../images/ex1.jpg" alt="My Image">"영어교육 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a1}"><img src="../images/undraw_Science_re_mnnr.png" alt="My Image">"과학 키트 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a2}"><img src="../images/undraw_Proud_coder_re_exuy.png" alt="My Image">"코딩교육 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a3}"><img src="../images/undraw_Teacher_re_sico.png" alt="My Image">"생활교육 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a4}"><img src="../images/undraw_Book_lover_re_rwjy.png" alt="My Image">"독서활동 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a5}"><img src="../images/undraw_Character_drawing_re_s2lj.png" alt="My Image">"미술교육 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a6}"><img src="../images/undraw_Calculator_re_alsc.png" alt="My Image">"수학교육 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a7}"><img src="../images/undraw_Running_wild_h6ao.png" alt="My Image">"체육교육 멘토링" 결과 보러가기</a>
+            <a th:href="@{/test/a8}"><img src="../images/undraw_Aircraft_re_m05i.png" alt="My Image">"영어교육 멘토링" 결과 보러가기</a>
             <br>
             <a id="back_to_first" th:href="@{/test/main}">처음으로 돌아가기↻</a>
         </div>

@@ -1,30 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/test_q.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-    <title>Document</title>
+    <title>Mench</title>
+    <link rel="stylesheet" href="/main.css">
+    <script defer src="/main.js"></script>
 </head>
 
 <body>
+<header>
+    <div class="inner">
+
+        <a th:href="@{/mainPage}" class="logo">
+            <img src="../images/logo.png" alt="Mench">
+        </a>
+
+        <div class="sub-menu">
+            <ul class="menu">
+                <li class="introduce">
+                    소개
+                </li>
+                <li class="mentoring">
+                    멘토링
+                </li>
+                <li class="test">
+                    <a class="move" th:href="@{/test/main}">검사하기</a>
+                </li>
+            </ul>
+            <a th:href="@{/fstPage}" class="log-out">
+                <div class="material-symbols-outlined">
+                    logout
+                </div>
+            </a>
+        </div>
+
+    </div>
+</header>
     <div class="q">
         <div class="logo">Mench</div>
-        <div class="img_q"><img src="../images/ex1.jpg" alt="My Image"></div>
+        <div class="img_q"><img src="../images/undraw_Video_influencer_re_ili7.png" alt="My Image"></div>
         <h1>내가 영화 속 등장인물이라면?</h1>
         <div class="a_q">
             <a id="a3" th:href="@{/test/a3}">친구들이 항상 내 곁에! 해리포터🤓⚡</a>
             <a id="a4" th:href="@{/test/a4}">책은 내 친구! 헤르미온느👧📚</a>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
+<script>
+            $(document).ready(function() {
         $("#a3").click(function(e) {
-            alert("a3");
-
-            // 서버로 요청 보내기
             $.ajax({
                 type: "POST",
                 url: "/test/a3"
@@ -32,22 +59,12 @@
         });
 
         $("#a4").click(function(e) {
-            alert("a4");
-
-            // 서버로 요청 보내기
             $.ajax({
                 type: "POST",
                 url: "/test/a4"
             });
         });
     });
-<!--        // 결과 저장이벤트 발생-->
-<!--        $("#a3").click(function(){-->
-<!--            alert("a3");-->
-<!--        });-->
-<!--        $("#a4").click(function(){-->
-<!--            alert("a4");-->
-<!--        });-->
     </script>
 </body>
 </html>

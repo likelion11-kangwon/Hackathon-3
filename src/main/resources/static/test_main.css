@@ -33,15 +33,24 @@ body {
     padding: 30px;
 }
 
-#main_a a {
+#main_a .test_a {
     background-color: #72edba;
     margin: 10px;
     padding: 15px;
     padding-left: 40px;
     padding-right: 40px;
     font-size: 40px;
-    color:#000;
+    color: #000;
     text-decoration: none;
     border: 1mm solid #72edba;
     border-radius: 50px;
+}
+
+#main_a .test_a:hover {
+    color: #fff;
+    font-weight: 600;
+    background-color: #00d67d;
+    border: 1mm solid #00d67d;
+    box-shadow: 2px 2px 3px 1px rgba(0, 60, 0, 0.548);
+
 }
