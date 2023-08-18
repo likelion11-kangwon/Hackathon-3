@@ -10,8 +10,9 @@ body {
     margin-top: 120px;
     margin-left: 20vw;
     margin-right: 20vw;
+    margin-bottom: 200px;
     width: 900px;
-    height: 700px;
+    height: 800px;
     overflow: hidden;
     text-align: center;
 }
