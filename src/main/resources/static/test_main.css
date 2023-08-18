@@ -10,9 +10,8 @@ body {
     margin-left: 20vw;
     margin-right: 20vw;
     margin-bottom: 100px;
-    width: 900px;
-    height: 600px;
-    overflow: hidden;
+    width: 60vw;
+    height: 80%;
 }
 
 .logo {
