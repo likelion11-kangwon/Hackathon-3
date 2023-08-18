@@ -15,7 +15,7 @@
 <header>
     <div class="inner">
 
-        <a th:href="@{/mainPage}" class="logo">
+        <a th:href="" class="logo">
             <img src="../images/logo.png" alt="Mench">
         </a>
 
@@ -39,7 +39,7 @@
             <a id="a5" th:href="@{/test/a5}">피카소!🎨</a>
         </div>
     </div>
-<script>
+    <script>
             $(document).ready(function() {
         $("#a7").click(function(e) {
             $.ajax({
@@ -55,6 +55,12 @@
             });
         });
     });
+
+      $(".logo").click(function(){
+        if(confirm("지금까지의 검사 기록이 저장되지 않습니다. 홈으로 돌아가시겠습니까?")){
+        $(this).attr("href", "@{/mainPage}");
+    }
+  });
     </script>
 </body>
 
