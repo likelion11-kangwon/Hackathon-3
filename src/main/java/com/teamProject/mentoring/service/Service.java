@@ -95,17 +95,16 @@ public class Service {
         if(existingUser.isPresent()) {
             UserEntity userEntity = existingUser.get();
             String userTestResult = userEntity.getBranch();
-            if(userTestResult == null) return "sign_up_in";
-            else if(userTestResult.equals("과학")) return "test_a1";
-            else if(userTestResult.equals("코딩")) return "test_a2";
-            else if(userTestResult.equals("생활")) return "test_a3";
-            else if(userTestResult.equals("독서")) return "test_a4";
-            else if(userTestResult.equals("미술")) return "test_a5";
-            else if(userTestResult.equals("수학")) return "test_a6";
-            else if(userTestResult.equals("체육")) return "test_a7";
-            else if(userTestResult.equals("영어")) return "test_a8";
-            else return "sign_up_in";
+            if(userTestResult == null) return null;
+            else if(userTestResult.equals("과학")) return "/test/a1";
+            else if(userTestResult.equals("코딩")) return "/test/a2";
+            else if(userTestResult.equals("생활")) return "/test/a3";
+            else if(userTestResult.equals("독서")) return "/test/a4";
+            else if(userTestResult.equals("미술")) return "/test/a5";
+            else if(userTestResult.equals("수학")) return "/test/a6";
+            else if(userTestResult.equals("체육")) return "/test/a7";
+            else if(userTestResult.equals("영어")) return "/test/a8";
         }
-        return "sign_up_in";
+        return null;
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
 @org.springframework.stereotype.Controller
 @RequiredArgsConstructor
 public class Controller {
-    private final Service userService;
+    private final Service service;
 
     @GetMapping("user/sign_up_in")
     public String registerHome(){
@@ -32,7 +32,7 @@ public class Controller {
 
 
         // 회원가입 성공 시 로그인 페이지.
-        if(userService.save(userDto)) {
+        if(service.save(userDto)) {
             System.out.println("성공");
             modelAndView.addObject("data", new Message("회원가입 성공.", "/user/sign_up_in"));
         }
@@ -50,7 +50,7 @@ public class Controller {
     @PostMapping("user/sign_in")
     public ModelAndView login(@ModelAttribute UserDto userDto, HttpSession session, ModelAndView modelAndView){
         System.out.println("로그인 dto = "+userDto.toString());
-        UserDto loginResult = userService.login(userDto);
+        UserDto loginResult = service.login(userDto);
         if(loginResult != null){
             // 로그인 성공
             // 앞으로 이 세션 정보를 이용.
@@ -119,8 +119,8 @@ public class Controller {
     @GetMapping("mainPage")
     public String mainPage(Model model, HttpSession httpSession){
         System.out.println("userEmail = "+httpSession.getAttribute("userEmail"));
-        List<Center> centerList = userService.getCenterListByArea((String) httpSession.getAttribute("userEmail"));
-        List<Company> companyList = userService.getCompanyList();
+        List<Center> centerList = service.getCenterListByArea((String) httpSession.getAttribute("userEmail"));
+        List<Company> companyList = service.getCompanyList();
 
         model.addAttribute("centerList", centerList);
         model.addAttribute("companyList", companyList);
@@ -129,10 +129,17 @@ public class Controller {
     }
 
     @PostMapping("/test/myTestResult")
-    public String myTestResult(HttpSession httpSession){
-        System.out.println("POST");
-        String address =  userService.getTestResultPage((String) httpSession.getAttribute("userEmail"));
-        return address;
+    public ModelAndView myTestResult(HttpSession httpSession, ModelAndView modelAndView){
+        if(!service.isExistUser((String) httpSession.getAttribute("userEmail"))){
+            modelAndView.addObject("data", new Message("로그인 후 이용가능한 서비스입니다", "/user/sign_up_in"));
+        }
+        else{
+            String address =  service.getTestResultPage((String) httpSession.getAttribute("userEmail"));
+            if(address == null) modelAndView.addObject("data", new Message("검사 결과가 없습니다. 검사를 진해해주세요.", "/test/q1"));
+            else modelAndView.addObject("data", new Message("", address));
+        }
+        modelAndView.setViewName("Message");
+        return modelAndView;
     }
 
 
@@ -180,49 +187,49 @@ public class Controller {
     @PostMapping("/test/a1")
     @ResponseBody
     public String handleA1Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "과학");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "과학");
         return "test/a1";
     }
     @PostMapping("/test/a2")
     @ResponseBody
     public String handleA2Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "코딩");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "코딩");
         return "test/a2";
     }
     @PostMapping("/test/a3")
     @ResponseBody
     public String handleA3Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "생활");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "생활");
         return "test/a3";
     }
     @PostMapping("/test/a4")
     @ResponseBody
     public String handleA4Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "독서");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "독서");
         return "test/a4";
     }
     @PostMapping("/test/a5")
     @ResponseBody
     public String handleA5Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "미술");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "미술");
         return "test/a5";
     }
     @PostMapping("/test/a6")
     @ResponseBody
     public String handleA6Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "수학");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "수학");
         return "test/a6";
     }
     @PostMapping("/test/a7")
     @ResponseBody
     public String handleA7Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "체육");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "체육");
         return "test/a7";
     }
     @PostMapping("/test/a8")
     @ResponseBody
     public String handleA8Request(HttpSession httpSession){
-        userService.updateUserProfile((String) httpSession.getAttribute("userEmail"), "영어");
+        service.updateUserProfile((String) httpSession.getAttribute("userEmail"), "영어");
         return "test/a8";
     }
 
