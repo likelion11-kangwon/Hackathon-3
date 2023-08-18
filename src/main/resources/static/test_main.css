@@ -1,6 +1,6 @@
 body {
     width: 100vw;
-    height: 100vh;
+    height: auto;
     text-align: center;
 }
 
@@ -9,6 +9,7 @@ body {
     margin-top: 120px;
     margin-left: 20vw;
     margin-right: 20vw;
+    margin-bottom: 100px;
     width: 900px;
     height: 600px;
     overflow: hidden;
@@ -44,6 +45,7 @@ body {
     text-decoration: none;
     border: 1mm solid #72edba;
     border-radius: 50px;
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
 }
 
 #main_a .test_a:hover {
@@ -53,4 +55,8 @@ body {
     border: 1mm solid #00d67d;
     box-shadow: 2px 2px 3px 1px rgba(0, 60, 0, 0.548);
 
+}
+
+form {
+    display: inline-block;
 }
