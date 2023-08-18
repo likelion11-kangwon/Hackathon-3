@@ -125,7 +125,14 @@ public class Controller {
         model.addAttribute("centerList", centerList);
         model.addAttribute("companyList", companyList);
 
-        return "/mainPage";
+        return "mainPage";
+    }
+
+    @PostMapping("/test/myTestResult")
+    public String myTestResult(HttpSession httpSession){
+        System.out.println("POST");
+        String address =  userService.getTestResultPage((String) httpSession.getAttribute("userEmail"));
+        return address;
     }
 
 

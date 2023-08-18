@@ -19,6 +19,8 @@ public class Service {
     private final UserRepository userRepository;
     private final CompanyRepository companyRepository;
     private final CenterRepository centerRepository;
+
+
     public boolean save(UserDto userDto) {
         UserEntity userEntity = UserEntity.toUserEntity(userDto);
         Optional<UserEntity> byUserEmail = userRepository.findByEmail(userDto.getEmail());
@@ -86,5 +88,24 @@ public class Service {
 
     public List<Company> getCompanyList() {
         return companyRepository.findAll();
+    }
+
+    public String getTestResultPage(String userEmail) {
+        Optional<UserEntity> existingUser = userRepository.findByEmail(userEmail);
+        if(existingUser.isPresent()) {
+            UserEntity userEntity = existingUser.get();
+            String userTestResult = userEntity.getBranch();
+            if(userTestResult == null) return "sign_up_in";
+            else if(userTestResult.equals("과학")) return "test_a1";
+            else if(userTestResult.equals("코딩")) return "test_a2";
+            else if(userTestResult.equals("생활")) return "test_a3";
+            else if(userTestResult.equals("독서")) return "test_a4";
+            else if(userTestResult.equals("미술")) return "test_a5";
+            else if(userTestResult.equals("수학")) return "test_a6";
+            else if(userTestResult.equals("체육")) return "test_a7";
+            else if(userTestResult.equals("영어")) return "test_a8";
+            else return "sign_up_in";
+        }
+        return "sign_up_in";
     }
 }
