@@ -94,7 +94,7 @@
             <li th:each="center, idx : ${centerList}">
               <p>
                 <span th:text="${idx.index + 1}"></span>. 센터명 : <span th:text="${center.name}"></span> <br>
-                센터 위치, 시간 : <span th:text="${center.info}"></span> <br>
+                센터 위치, 전화번호, 시간 : <span th:text="${center.info}"></span> <br>
                 프로그램 : <span th:text="${center.program}"></span> <br><br>
               </p>
             </li>

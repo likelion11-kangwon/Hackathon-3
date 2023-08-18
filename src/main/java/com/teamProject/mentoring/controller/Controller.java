@@ -33,12 +33,12 @@ public class Controller {
 
         // 회원가입 성공 시 로그인 페이지.
         if(service.save(userDto)) {
-            System.out.println("성공");
+//            System.out.println("성공");
             modelAndView.addObject("data", new Message("회원가입 성공.", "/user/sign_up_in"));
         }
         // 회원가입 실패 (이메일 중복) 시 알림창 띄우고 다시 회원가입 페이지
         else {
-            System.out.println("실패");
+//            System.out.println("실패");
             modelAndView.addObject("data", new Message("이미 가입된 이메일입니다. 다시 회원가입 해주세요.", "/user/sign_up_in"));
         }
         modelAndView.setViewName("Message");
@@ -49,67 +49,23 @@ public class Controller {
 
     @PostMapping("user/sign_in")
     public ModelAndView login(@ModelAttribute UserDto userDto, HttpSession session, ModelAndView modelAndView){
-        System.out.println("로그인 dto = "+userDto.toString());
+//        System.out.println("로그인 dto = "+userDto.toString());
         UserDto loginResult = service.login(userDto);
         if(loginResult != null){
             // 로그인 성공
             // 앞으로 이 세션 정보를 이용.
             session.setAttribute("userEmail", loginResult.getEmail());
-            System.out.println("성공!");
+//            System.out.println("성공!");
             modelAndView.addObject("data", new Message("", "/mainPage"));
-//            return "mainPage";
         }
         else{
             // 로그인 실패
-            System.out.println("실패!");
+//            System.out.println("실패!");
             modelAndView.addObject("data", new Message("계정 정보가 일치하지 않습니다.", "/user/sign_up_in"));
-//            return "loginHome";
         }
         modelAndView.setViewName("Message");
         return modelAndView;
     }
-
-
-    @GetMapping("mainPage2")
-    public String mainPage2(){
-        return "mainPage2";
-    }
-
-    @GetMapping("buttonTest")
-    public String buttonTest(HttpSession httpSession){
-        System.out.println(httpSession.getAttribute("userEmail"));
-        return "buttonTest";
-    }
-
-//    @GetMapping("buttonTest2")
-//    public String buttonTest2(Model model){
-//        List<Center> centerList = userService.buttonTest();
-//        model.addAttribute("centerList", centerList);
-//
-//        return "buttonTest2";
-//    }
-
-//    @PostMapping("buttonTest")
-//    public String save_branch(HttpSession httpSession){
-//        List<Center> centerList = userService.buttonTest("힘찬지역아동센터");
-//        for(Center c : centerList){
-//            System.out.println(c.getInfo());
-//            System.out.println(c.getIntro());
-//            System.out.println(c.getProgram());
-//            System.out.println(c.getName());
-//        }
-//
-//
-//        return "buttonTest";
-//    }
-
-//    @Configuration
-//    public class MvcConfig implements WebMvcConfigurer {
-//        @Override
-//        public void addViewControllers(ViewControllerRegistry registry) {
-//            registry.addViewController("buttonTest2").setViewName("buttonTest2");
-//        }
-//    }
 
 
     @GetMapping("fstPage")
@@ -118,7 +74,7 @@ public class Controller {
     }
     @GetMapping("mainPage")
     public String mainPage(Model model, HttpSession httpSession){
-        System.out.println("userEmail = "+httpSession.getAttribute("userEmail"));
+//        System.out.println("userEmail = "+httpSession.getAttribute("userEmail"));
         List<Center> centerList = service.getCenterListByArea((String) httpSession.getAttribute("userEmail"));
         List<Company> companyList = service.getCompanyList();
 
@@ -142,14 +98,6 @@ public class Controller {
         return modelAndView;
     }
 
-
-//    @Configuration
-//    public class MvcConfig implements WebMvcConfigurer {
-//        @Override
-//        public void addViewControllers(ViewControllerRegistry registry) {
-//            registry.addViewController("buttonTest2").setViewName("buttonTest2");
-//        }
-//    }
 
     @GetMapping("test/a1")
     public String test_a1(){

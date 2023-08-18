@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
     List<Company> findByName(String companyName);
-    List<Company> findByNameContaining(String keyword);
 
 }

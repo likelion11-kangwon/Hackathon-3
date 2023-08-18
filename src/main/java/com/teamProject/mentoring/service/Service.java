@@ -33,7 +33,7 @@ public class Service {
         }
         // 중복되는 이메일 존재
         else {
-            System.out.println("exist _ email");
+//            System.out.println("exist _ email");
             return false;
         }
     }
@@ -74,9 +74,11 @@ public class Service {
     public List<Center> getCenterListByArea(String userEmail){
         Optional<UserEntity> existingUser = userRepository.findByEmail(userEmail);
         if(existingUser.isPresent()){
-            System.out.println("EXIST");
+//            System.out.println("EXIST");
             UserEntity userEntity = existingUser.get();
-            return centerRepository.findByInfoContaining(userEntity.getArea());
+            String area = userEntity.getArea();
+            if(area.equals("강원특별자치도")) area = "강원도";
+            return centerRepository.findByInfoContaining(area);
         }
         return null;
     }
