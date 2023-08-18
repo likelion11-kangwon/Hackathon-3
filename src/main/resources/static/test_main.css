@@ -44,6 +44,7 @@ body {
     text-decoration: none;
     border: 1mm solid #72edba;
     border-radius: 50px;
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
 }
 
 #main_a .test_a:hover {
