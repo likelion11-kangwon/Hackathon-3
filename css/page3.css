@@ -6,11 +6,9 @@
 }
 
 body {
-  background-image: url('./sketchpad-and-books-on-black-desk_23-2148193382.avif');
+  background-image: url('../images/sketchpad-and-books-on-black-desk_23-2148193382.avif');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-
 }
 .background{
   background-color: aliceblue;
